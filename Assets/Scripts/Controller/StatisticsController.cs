@@ -25,5 +25,11 @@ public class StatisticsController : MonoBehaviour
         text.text = a;
     }
 
-
+    public void BackCallback()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.ReturnToStart();
+        }
+    }
 }

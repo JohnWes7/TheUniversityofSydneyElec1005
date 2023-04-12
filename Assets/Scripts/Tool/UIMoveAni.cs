@@ -24,13 +24,22 @@ public class UIMoveAni : MonoBehaviour
         }
     }
 
-    public void Disable()
+    public void Disable(bool destroy = false)
     {
         if (activeEnd)
         {
-            transform.DOMove(new Vector3(pos.x - Screen.width, pos.y), 0.5f).OnComplete(() => {
-                gameObject.SetActive(false);
-            });
+            if (destroy)
+            {
+                transform.DOMove(new Vector3(pos.x - Screen.width, pos.y), 0.5f).OnComplete(() => {
+                    Destroy(gameObject);
+                });
+            }
+            else
+            {
+                transform.DOMove(new Vector3(pos.x - Screen.width, pos.y), 0.5f).OnComplete(() => {
+                    gameObject.SetActive(false);
+                });
+            }
         }
     }
 }

@@ -108,6 +108,30 @@ public class GameManager : MonoBehaviour
         statisticsPanel.UpdateHistory(history);
     }
 
+    /// <summary>
+    /// 中断回答问题返回主界面
+    /// </summary>
+    public void ReturnToStart()
+    {
+        // 打开开始面板
+        StartPanelController.Instance.gameObject.SetActive(true);
+
+        // 删除自己的子UI物件
+        // 删除提问面板
+        if (questionPanelController)
+        {
+            Destroy(questionPanelController.gameObject);
+        }
+        // 删除最后结算统计面板
+        if (statisticsPanel)
+        {
+            statisticsPanel.GetComponent<UIMoveAni>().Disable(true);
+        }
+
+        Destroy(gameObject);
+    }
+
+
     private void CloseUI(GameObject ui)
     {
         UIMoveAni uIMoveAni;

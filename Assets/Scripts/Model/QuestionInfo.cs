@@ -4,10 +4,15 @@ using System.IO;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
+/// <summary>
+/// 数据类
+/// </summary>
 public class QuestionInfo
 {
+    // 单例属性
     private static QuestionInfo instance;
-
+    
+    // 
     public static QuestionInfo Instance
     {
         get
@@ -26,7 +31,7 @@ public class QuestionInfo
     private QuestionInfo()
     {
         // 读取数据
-        //TODO: 更改读取方式到文件夹查找
+        // TODO: 更改读取方式到文件夹查找
         TextAsset datastring = Resources.Load<TextAsset>(PATH.QuestionDataPath);
         Debug.Log(datastring.text);
 
@@ -134,7 +139,7 @@ public class QuestionDetailInfo
     public int Index { get; }
     public string QuestionDesc { get; }
     public List<KeyValuePair<string, int>> Options { get; }
-
+   
     public QuestionDetailInfo(int index, string questionDesc, List<KeyValuePair<string, int>> options)
     {
         QuestionDesc = questionDesc;
