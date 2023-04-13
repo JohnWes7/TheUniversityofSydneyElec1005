@@ -22,6 +22,14 @@ public class StatisticsController : MonoBehaviour
             a += "\n\n";
         }
 
+        if (a.Equals(""))
+        {
+            a = "No question here, Please add in " + Application.streamingAssetsPath + "\n";
+        }
+
+        a += "Socre: ";
+        a += GameManager.Instance.GetSocre().ToString();
+
         text.text = a;
     }
 

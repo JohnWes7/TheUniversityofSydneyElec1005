@@ -2,16 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class UIMoveAni : MonoBehaviour
 {
-    [SerializeField] private Vector3 pos;
     [SerializeField] public bool activeStart = true;
     [SerializeField] public bool activeEnd = true;
 
     private void Awake()
     {
-        pos = transform.position;
+        
+    }
+
+    public static Vector3 GetScreenCenter()
+    {
+        return new Vector3(Screen.width / 2, Screen.height / 2);
+    }
+
+    public static Vector3 GetRightScreenCenter()
+    {
+        return new Vector3(Screen.width * 3 / 2, Screen.height / 2);
+    }
+    
+    public static Vector3 GetLeftScreenCenter()
+    {
+        return new Vector3(-Screen.width / 2, Screen.height / 2);
     }
 
 
@@ -19,10 +34,15 @@ public class UIMoveAni : MonoBehaviour
     {
         if (activeStart)
         {
-            transform.position = new Vector3(pos.x + Screen.width, pos.y);
-            transform.DOMove(pos, 0.5f);
+            transform.position = GetRightScreenCenter();
+            transform.DOMove(GetScreenCenter(), 0.5f);
         }
     }
+
+    //private void Update()
+    //{
+    //    Debug.Log(gameObject.name + " : " + transform.position);
+    //}
 
     public void Disable(bool destroy = false)
     {
@@ -30,13 +50,13 @@ public class UIMoveAni : MonoBehaviour
         {
             if (destroy)
             {
-                transform.DOMove(new Vector3(pos.x - Screen.width, pos.y), 0.5f).OnComplete(() => {
+                transform.DOMove(GetLeftScreenCenter(), 0.5f).OnComplete(() => {
                     Destroy(gameObject);
                 });
             }
             else
             {
-                transform.DOMove(new Vector3(pos.x - Screen.width, pos.y), 0.5f).OnComplete(() => {
+                transform.DOMove(GetLeftScreenCenter(), 0.5f).OnComplete(() => {
                     gameObject.SetActive(false);
                 });
             }
