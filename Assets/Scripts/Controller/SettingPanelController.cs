@@ -31,7 +31,7 @@ public class SettingPanelController : MonoBehaviour
                 Screen.SetResolution(1920, 1080, Screen.fullScreen);
                 break;
             case 1:
-                Screen.SetResolution(1366, 768, Screen.fullScreen);
+                Screen.SetResolution(1600, 900, Screen.fullScreen);
                 break;
             case 2:
                 Screen.SetResolution(1280, 720, Screen.fullScreen);

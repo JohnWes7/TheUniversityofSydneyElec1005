@@ -15,6 +15,9 @@ public class StartPanelController : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
+      
+
     }
 
     public void StartCallback()

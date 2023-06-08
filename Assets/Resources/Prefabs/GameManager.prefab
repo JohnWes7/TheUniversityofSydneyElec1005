@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questionPanelPrefab: {fileID: 136914926994976764, guid: ee413100f65c0d24e808e2eba27c6573, type: 3}
   questionPanelController: {fileID: 0}
-  statisticsPanelPrefab: {fileID: 3524004196391943160, guid: 93c9895edcef40b41b66cd9a325ce312, type: 3}
+  statisticsPanelPrefab: {fileID: 7382073742162187080, guid: 0515ae50172e144458e24956879e84c8, type: 3}
   statisticsPanel: {fileID: 0}
   debugtext: {fileID: 0}
   questionIterator:
